@@ -1,6 +1,6 @@
 {
 	"name": "@changelog-tags/zh-cn",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"description": "",
 	"type": "module",
 	"main": "index.js",
