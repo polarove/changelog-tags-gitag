@@ -44,7 +44,7 @@ const generate = (version: Tags) => {
 	const repoUrl = getRepoUrl()
 	if (!repoUrl) {
 		print('⚠️ 请指定仓库地址')
-		print('ct --repo https://github.com/xxx/xxx')
+		print('ct --repo https://yourgit.com/xxx/xxx')
 		exit(1)
 	}
 	const command = `git log --pretty=format:"**%ci**%n%s by [%cn](%ce)%n详情：[\`%h\`](${repoUrl}/commit/%H)%n" --no-merges ${version.previous}...${version.latest}`

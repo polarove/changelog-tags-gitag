@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "tsc",
-		"postversion": "tsx src/index.ts"
+		"postversion": "ct --repo https://github.com/polarove/changelog-tags-zh-cn"
 	},
 	"keywords": [
 		"changelog",
