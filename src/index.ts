@@ -33,7 +33,7 @@ exec(
 )
 
 const generate = (version: Tags) => {
-	const command = `git log --pretty=format:"**%ci**%n%s by [%cn](%ce)%n详情：[\`%h\`](${REPO_URL}/commit/%H)%n" --no-merges ${version.previous}...${version.latest}`
+	const command = `git log --pretty=format:"**%c**%n%s by [%cn](%ce)%n详情：[\`%h\`](${REPO_URL}/commit/%H)%n" --no-merges ${version.previous}...${version.latest}`
 	exec(command, (error, stdout, stderr) => {
 		if (error) {
 			print('⚠️ git log 错误')
