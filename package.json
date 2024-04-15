@@ -1,0 +1,17 @@
+{
+	"name": "@changelog-tags/zh-cn",
+	"version": "0.0.2",
+	"description": "",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"postversion": "tsx src/test.ts"
+	},
+	"author": "",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "^20.12.7",
+		"typescript": "^5.4.5"
+	}
+}
