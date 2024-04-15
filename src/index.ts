@@ -50,7 +50,7 @@ const generate = (version: Tags) => {
 			if (previousChangelog.split('\n')[0].slice(3) !== version.latest) {
 				stdout = `## ${version.latest}`
 					.concat('\n')
-					.concat(stdout)
+					.concat(parse(stdout))
 					.concat('\n\n\n\n\n')
 					.concat(previousChangelog)
 				writeFile('./CHANGELOG.md', stdout, (err) => {
@@ -60,10 +60,16 @@ const generate = (version: Tags) => {
 			} else return print(`🧐 版本尚未更新，跳过本次生成`)
 		}
 	})
-}
 
-const getPreviousChangelog = () => {
-	if (existsSync('./CHANGELOG.md'))
-		return readFileSync('./CHANGELOG.md', { encoding: 'utf-8' })
-	else return ''
+	const parse = (stdout: string): string => {
+		let stdoutArr = stdout.split('\n')
+		return stdoutArr
+			.splice(stdoutArr.indexOf('') + 1, stdoutArr.length)
+			.reduce((a, b) => a + '\n' + b + '\n')
+	}
+	const getPreviousChangelog = () => {
+		if (existsSync('./CHANGELOG.md'))
+			return readFileSync('./CHANGELOG.md', { encoding: 'utf-8' })
+		else return ''
+	}
 }
