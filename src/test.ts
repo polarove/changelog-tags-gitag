@@ -1,3 +1,5 @@
+import { log } from 'console'
 import { readFile } from 'fs'
 
-readFile('../package.json', (err, data) => console.log(data))
+const d = await import('../package.json')
+log(d.version)
