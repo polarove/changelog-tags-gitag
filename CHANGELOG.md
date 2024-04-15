@@ -1,3 +1,16 @@
+## v0.0.12
+**2024-04-15 14:40:30 +0800**
+0.0.12 by [liuqi](liuqi6602@163.com)
+详情：[`efcee71`](https://github.com/gtesim/gt-admin/commit/efcee717a41cc8ec12f96d96ce553987e6d15476)
+
+**2024-04-15 14:40:26 +0800**
+asf by [liuqi](liuqi6602@163.com)
+详情：[`51ddc85`](https://github.com/gtesim/gt-admin/commit/51ddc85748d0deb7378ad066cb3f339437c67c6f)
+
+
+
+
+
 ## v0.0.11
 **2024-04-15 14:39:48 +0800**
 0.0.11 by [liuqi](liuqi6602@163.com)
