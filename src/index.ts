@@ -8,7 +8,15 @@ interface Tags {
 	previous: string | undefined
 }
 
-const REPO_URL = 'https://github.com/gtesim/gt-admin'
+const getRepoUrl = () => {
+	let url
+	process.argv.forEach((value, index) => {
+		if (value === '--repo') {
+			url = process.argv[index + 1]
+		}
+	})
+	return url
+}
 
 const print = (msg: string) => log(`[更新日志生成器]：${msg}`)
 
@@ -33,7 +41,13 @@ exec(
 )
 
 const generate = (version: Tags) => {
-	const command = `git log --pretty=format:"**%ci**%n%s by [%cn](%ce)%n详情：[\`%h\`](${REPO_URL}/commit/%H)%n" --no-merges ${version.previous}...${version.latest}`
+	const repoUrl = getRepoUrl()
+	if (!repoUrl) {
+		print('⚠️ 请指定仓库地址')
+		print('ct --repo https://github.com/xxx/xxx')
+		exit(1)
+	}
+	const command = `git log --pretty=format:"**%ci**%n%s by [%cn](%ce)%n详情：[\`%h\`](${repoUrl}/commit/%H)%n" --no-merges ${version.previous}...${version.latest}`
 	exec(command, (error, stdout, stderr) => {
 		if (error) {
 			print('⚠️ git log 错误')
