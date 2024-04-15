@@ -1,6 +1,6 @@
 {
 	"name": "@changelog-tags/zh-cn",
-	"version": "0.0.15",
+	"version": "0.0.16",
 	"description": "抓取当前分支最新的两个 tag 并生成软件版本更新日志",
 	"type": "module",
 	"scripts": {
