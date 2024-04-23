@@ -44,57 +44,48 @@ const fetchTags = () => {
 }
 
 const generate = (version: Tags) => {
-  let url
-  process.argv.forEach((value, index) => {
-    if (value === '--repo') {
-      url = process.argv[index + 1]
+  const url = execSync('git config --get remote.origin.url', {
+    encoding: 'utf-8'
+  })
+
+  const command = `git log --pretty=format:"**%ci**%n%s by [%cn](%ce)%n详情：[\`%h\`](${url.replace('git@', 'https://').replace('.git', '.com')}/commit/%H)%n" --no-merges ${version.previous}...${version.latest}`
+  exec(command, (error, stdout, stderr) => {
+    if (error) {
+      print('⚠️ git log 错误')
+      process.exit(1)
+    }
+
+    if (stderr) {
+      print(stderr)
+      process.exit(2)
+    }
+
+    if (stdout) {
+      const previousChangelog = getPreviousChangelog()
+      if (previousChangelog.split('\n')[0].slice(3) !== version.latest) {
+        stdout = `## ${version.latest}`
+          .concat('\n')
+          .concat(parse(stdout))
+          .concat('\n\n\n\n\n')
+          .concat(previousChangelog)
+        writeFile('./CHANGELOG.md', stdout, (err) => {
+          if (err) print('⚠️ 生成时发生错误')
+          else print(`😄 生成完毕`)
+        })
+      } else return print(`🧐 版本尚未更新，跳过本次生成`)
     }
   })
-  console.log(url)
-  if (url) {
-    const command = `git log --pretty=format:"**%ci**%n%s by [%cn](%ce)%n详情：[\`%h\`](${url}/commit/%H)%n" --no-merges ${version.previous}...${version.latest}`
-    exec(command, (error, stdout, stderr) => {
-      if (error) {
-        print('⚠️ git log 错误')
-        process.exit(1)
-      }
 
-      if (stderr) {
-        print(stderr)
-        process.exit(2)
-      }
-
-      if (stdout) {
-        const previousChangelog = getPreviousChangelog()
-        if (previousChangelog.split('\n')[0].slice(3) !== version.latest) {
-          stdout = `## ${version.latest}`
-            .concat('\n')
-            .concat(parse(stdout))
-            .concat('\n\n\n\n\n')
-            .concat(previousChangelog)
-          writeFile('./CHANGELOG.md', stdout, (err) => {
-            if (err) print('⚠️ 生成时发生错误')
-            else print(`😄 生成完毕`)
-          })
-        } else return print(`🧐 版本尚未更新，跳过本次生成`)
-      }
-    })
-
-    const parse = (stdout: string): string => {
-      let stdoutArr = stdout.split('\n')
-      return stdoutArr
-        .splice(stdoutArr.indexOf('') + 1, stdoutArr.length)
-        .reduce((a, b) => a + '\n' + b + '\n')
-    }
-    const getPreviousChangelog = () => {
-      if (existsSync('./CHANGELOG.md'))
-        return readFileSync('./CHANGELOG.md', { encoding: 'utf-8' })
-      else return ''
-    }
-    exit(0)
-  } else {
-    print('⚠️ 未指定仓库的url')
-    print('ct --repo https://yourgit.com/xxx/xxx')
-    exit(1)
+  const parse = (stdout: string): string => {
+    let stdoutArr = stdout.split('\n')
+    return stdoutArr
+      .splice(stdoutArr.indexOf('') + 1, stdoutArr.length)
+      .reduce((a, b) => a + '\n' + b + '\n')
   }
+  const getPreviousChangelog = () => {
+    if (existsSync('./CHANGELOG.md'))
+      return readFileSync('./CHANGELOG.md', { encoding: 'utf-8' })
+    else return ''
+  }
+  exit(0)
 }
