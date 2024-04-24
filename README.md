@@ -7,11 +7,13 @@
 
 ## 软件生态
 
-[@changelog-tags/github]()
+自动生成 changelog 并将其发布到 GitHub 仓库的 release
 
-@changelog-tags/coding
+[@changelog-tags/github](https://github.com/polarove/changelog-tags-github) | MIT LICENSE
 
-@changelog-tags/gitee
+自动生成 changelog 并将其发布到阿里 coding 平台的 release
+
+[@changelog-tags/coding](https://github.com/polarove/changelog-tags-coding) | MIT LICENSE
 
 ## License
 
