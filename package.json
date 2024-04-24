@@ -1,6 +1,6 @@
 {
   "name": "changelog-tags",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "由 tag 生成软件版本更新日志",
   "type": "module",
   "scripts": {
