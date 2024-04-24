@@ -1,5 +1,5 @@
 {
-  "name": "gitag",
+  "name": "@changelog-tags/gitag",
   "version": "0.0.27",
   "description": "get commits by tags",
   "type": "module",
