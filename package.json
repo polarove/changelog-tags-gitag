@@ -1,6 +1,6 @@
 {
   "name": "gitag",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "get commits by tags",
   "type": "module",
   "exports": {
