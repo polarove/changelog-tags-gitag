@@ -4,6 +4,8 @@ export type TagTo = string
 export interface CliOptions {
   from: TagFrom
   to: TagTo
+  output: string
+  domain: string
 }
 
 export interface Commit {

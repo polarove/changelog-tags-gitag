@@ -27,15 +27,12 @@
   "author": "liuqi <liuqi6602@163.com>",
   "license": "MIT",
   "dependencies": {
-    "cac": "^6.7.14",
     "execa": "^8.0.1",
-    "semver": "^6.2.0",
     "typescript": "^5.4.5"
   },
   "devDependencies": {
     "@cz-translated-changelog/zh-cn": "latest",
     "@translated-lint/zh-cn": "latest",
-    "@types/semver": "^7.5.8",
     "commitizen": "latest",
     "husky": "latest",
     "kolorist": "^1.8.0",
