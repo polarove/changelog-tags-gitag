@@ -3,6 +3,10 @@
   "version": "0.0.34",
   "description": "get commits by tags",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polarove/changelog-tags/gitag.git"
+  },
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
