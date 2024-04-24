@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "[@cz-translated-changelog]: 正在检查提交消息"
+pnpm exec tlzc --path ${1}

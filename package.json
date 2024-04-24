@@ -1,11 +1,14 @@
 {
-  "name": "@changelog-tags/zh-cn",
+  "name": "changelog-tags",
   "version": "0.0.21",
-  "description": "抓取当前分支最新的两个 tag 并生成软件版本更新日志",
-  "type": "commonjs",
+  "description": "由 tag 生成软件版本更新日志",
+  "type": "module",
   "scripts": {
     "build": "unbuild",
-    "postversion": "node dist/index.cjs --repo https://github.com/polarove/changelog-tags-zh-cn"
+    "test": "vitest"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "changelog",
@@ -23,15 +26,29 @@
   ],
   "author": "liuqi <liuqi6602@163.com>",
   "license": "MIT",
+  "dependencies": {
+    "cac": "^6.7.14",
+    "execa": "^8.0.1",
+    "semver": "^6.2.0",
+    "typescript": "^5.4.5"
+  },
   "devDependencies": {
-    "@types/node": "^20.12.7",
-    "typescript": "^5.4.5",
-    "unbuild": "^2.0.0"
+    "@cz-translated-changelog/zh-cn": "latest",
+    "@translated-lint/zh-cn": "latest",
+    "@types/semver": "^7.5.8",
+    "commitizen": "latest",
+    "husky": "latest",
+    "kolorist": "^1.8.0",
+    "lint-staged": "^15.2.2",
+    "npm-check-updates": "^16.14.18",
+    "prettier": "^3.2.5",
+    "unbuild": "^2.0.0",
+    "vitest": "^1.5.0"
   },
-  "bin": {
-    "ct": "dist/index.cjs"
-  },
-  "publishConfig": {
-    "access": "public"
+  "bin": "./cli.mjs",
+  "config": {
+    "commitizen": {
+      "path": "node_modules/@cz-translated-changelog/zh-cn"
+    }
   }
 }
