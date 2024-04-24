@@ -1,8 +1,19 @@
 {
-  "name": "changelog-tags",
+  "name": "gitag",
   "version": "0.0.26",
-  "description": "由 tag 生成软件版本更新日志",
+  "description": "get commits by tags",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "unbuild",
     "test": "vitest"
@@ -11,18 +22,8 @@
     "access": "public"
   },
   "keywords": [
-    "changelog",
-    "changelog-generator",
-    "简体中文"
-  ],
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    }
-  },
-  "files": [
-    "dist"
+    "git tags",
+    "tags"
   ],
   "author": "liuqi <liuqi6602@163.com>",
   "license": "MIT",
@@ -42,7 +43,6 @@
     "unbuild": "^2.0.0",
     "vitest": "^1.5.0"
   },
-  "bin": "./cli.mjs",
   "config": {
     "commitizen": {
       "path": "node_modules/@cz-translated-changelog/zh-cn"
