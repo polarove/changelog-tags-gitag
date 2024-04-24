@@ -1,6 +1,6 @@
 {
   "name": "@changelog-tags/gitag",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "description": "get commits by tags",
   "type": "module",
   "exports": {
