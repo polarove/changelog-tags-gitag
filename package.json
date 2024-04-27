@@ -36,8 +36,8 @@
         "typescript": "^5.4.5"
     },
     "devDependencies": {
-        "@cz-translated-changelog/zh-cn": "workspace:*",
-        "@translated-lint/zh-cn": "workspace:*",
+        "@cz-translated-changelog/zh-cn": "latest",
+        "@translated-lint/zh-cn": "latest",
         "commitizen": "latest",
         "husky": "latest",
         "kolorist": "^1.8.0",
