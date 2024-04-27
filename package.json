@@ -1,55 +1,55 @@
 {
-  "name": "@changelog-tags/gitag",
-  "version": "0.0.35",
-  "description": "get commits by tags",
-  "type": "module",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/polarove/changelog-tags/gitag.git"
-  },
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+    "name": "@changelog-tags/gitag",
+    "version": "0.0.35",
+    "description": "get commits by tags",
+    "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/polarove/changelog-tags/gitag.git"
+    },
+    "exports": {
+        ".": {
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.cjs"
+        }
+    },
+    "main": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "unbuild",
+        "test": "vitest"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "keywords": [
+        "git tags",
+        "tags"
+    ],
+    "author": "liuqi <liuqi6602@163.com>",
+    "license": "MIT",
+    "dependencies": {
+        "execa": "^8.0.1",
+        "typescript": "^5.4.5"
+    },
+    "devDependencies": {
+        "@cz-translated-changelog/zh-cn": "workspace:*",
+        "@translated-lint/zh-cn": "workspace:*",
+        "commitizen": "latest",
+        "husky": "latest",
+        "kolorist": "^1.8.0",
+        "lint-staged": "^15.2.2",
+        "npm-check-updates": "^16.14.18",
+        "prettier": "^3.2.5",
+        "unbuild": "^2.0.0",
+        "vitest": "^1.5.0"
+    },
+    "config": {
+        "commitizen": {
+            "path": "node_modules/@cz-translated-changelog/zh-cn"
+        }
     }
-  },
-  "main": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "unbuild",
-    "test": "vitest"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "keywords": [
-    "git tags",
-    "tags"
-  ],
-  "author": "liuqi <liuqi6602@163.com>",
-  "license": "MIT",
-  "dependencies": {
-    "execa": "^8.0.1",
-    "typescript": "^5.4.5"
-  },
-  "devDependencies": {
-    "@cz-translated-changelog/zh-cn": "latest",
-    "@translated-lint/zh-cn": "latest",
-    "commitizen": "latest",
-    "husky": "latest",
-    "kolorist": "^1.8.0",
-    "lint-staged": "^15.2.2",
-    "npm-check-updates": "^16.14.18",
-    "prettier": "^3.2.5",
-    "unbuild": "^2.0.0",
-    "vitest": "^1.5.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/@cz-translated-changelog/zh-cn"
-    }
-  }
 }
